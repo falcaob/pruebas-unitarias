@@ -19,7 +19,6 @@ public class EspectadorTest extends TestCase {
 	public void testSetMaximoPeliculas() {
 		Espectador e3 = new Espectador();
 		e3.setMaximoPeliculas(10);
-		//Aquí el error
-		assertEquals(10, 10);
+		assertEquals(10, e3.getMaximoPeliculas());
 	}
 }
