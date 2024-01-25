@@ -30,4 +30,8 @@ public class Espectador {
 			this.maximoPeliculas = maximoPeliculas;
 		}
 		
+		//Cubrir método toString
+		public String toString() {
+			return this.getNombre() + " (" + this.getMaximoPeliculas() + " peliculas)";
+		}		
 }

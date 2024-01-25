@@ -21,4 +21,13 @@ public class EspectadorTest extends TestCase {
 		e3.setMaximoPeliculas(10);
 		assertEquals(10, e3.getMaximoPeliculas());
 	}
+	
+	//Nuevo método
+	public void testToString() {
+		Espectador e4 = new Espectador();
+		e4.setNombre("Irene Falcao");
+		e4.setMaximoPeliculas(9);
+		String testString = "Irene Falcao (9 peliculas)";
+		assertEquals(testString, e4.toString());
+	}
 }
