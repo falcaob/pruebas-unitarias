@@ -19,9 +19,10 @@ public class PeliculaTest extends TestCase {
 		p2.setEspectador(e2);
 		
 		//Obtener el nombre de la persona que ha visto la pelicula
-		Espectador testEspectador = p2.getEspectador();
-		String testNombre = testEspectador.getNombre();
+		//Espectador testEspectador = p2.getEspectador();
+		//String testNombre = testEspectador.getNombre();
 		
+		String testNombre = p2.getEspectador().getNombre();
 		assertEquals("Anakin", testNombre);
 	}
 	

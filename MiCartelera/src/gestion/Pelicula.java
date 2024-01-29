@@ -3,8 +3,9 @@ package gestion;
 public class Pelicula {
 	
 	//Propiedades
-	public String titulo;
-	public String director;
+	String titulo;
+	String director;
+	Espectador espectador;
 	
 	//Constructor
 	public Pelicula(String string) {
@@ -30,14 +31,12 @@ public class Pelicula {
 	}
 
 	public void setEspectador(Espectador e2) {
-		// TODO Auto-generated method stub
+		this.espectador = e2;
 		
 	}
 
 	public Espectador getEspectador() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.espectador;
 	}
-
 
 }
