@@ -10,6 +10,7 @@ public class AllTests {
 		//$JUnit-BEGIN$
 		suite.addTestSuite(EspectadorTest.class);
 		suite.addTestSuite(PeliculaTest.class);
+		suite.addTestSuite(MiCineTest.class);
 		//$JUnit-END$
 		return suite;
 	}
