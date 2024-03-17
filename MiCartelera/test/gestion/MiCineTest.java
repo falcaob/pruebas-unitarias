@@ -1,9 +1,14 @@
 package gestion;
 
 import java.util.ArrayList;
-
 import junit.framework.TestCase;
 
+/**
+ * Clase de pruebas unitarias para la clase MiCine.
+ * 
+ * @author Irene
+ * @version 17 18/03/2024
+ */
 public class MiCineTest extends TestCase {
 
 	private Pelicula p1;
@@ -12,6 +17,10 @@ public class MiCineTest extends TestCase {
 	private Espectador e2;
 	private MiCine c1;
 
+	/**
+     * Prueba el constructor de la clase MiCine.
+     * Verifica que se inicialice correctamente el nombre del cine y que las listas de pelculas y espectadores sean instancias de ArrayList.
+     */
 	public void testMiCine() {
 		MiCine c1 = new MiCine("Test");
 
@@ -20,7 +29,10 @@ public class MiCineTest extends TestCase {
 		assertTrue(c1.peliculas instanceof ArrayList);
 		assertTrue(c1.espectadores instanceof ArrayList);
 	}
-
+	
+	/**
+     * Configuracion inicial de los objetos para las pruebas.
+     */
 	public void setup() {
 		// creación de objetos
 		p1 = new Pelicula("Pelicula1");
@@ -33,7 +45,11 @@ public class MiCineTest extends TestCase {
 
 		c1 = new MiCine("Test");
 	}
-
+	
+	/**
+     * Prueba el metodo incluirPelicula de la clase MiCine.
+     * Verifica que se incluyen y eliminen correctamente peliculas de la lista de peliculas del cine.
+     */
 	public void testInlucirPelicula() {
 		// creación de los objetos de test
 		setup();
@@ -59,6 +75,10 @@ public class MiCineTest extends TestCase {
 
 	// Vídeo12
 	// método de verificación
+	/**
+     * Prueba el metodo checkOut de la clase MiCine.
+     * Verifica que se realice correctamente el proceso de salida de una pelicula para un espectador.
+     */
 	public void testCheckOut() {
 		// configuración de objetos
 		setup();
@@ -89,14 +109,21 @@ public class MiCineTest extends TestCase {
 		assertFalse("Segunda pelicula no debería tener verificación", c1.checkOut(p1, e1));
 
 	}
-
+	
+	/**
+	 * Metodo extraido del metodo anterior que une todos los items que vamos a utilizar.
+	 */
 	private void incluirElementos() {
 		c1.incluirPelicula(p1);
 		c1.incluirPelicula(p2);
 		c1.incluirEspectador(e1);
 		c1.incluirEspectador(e2);
 	}
-
+	
+	/**
+     * Prueba el metodo obtenerPeliculasParaEspectador de la clase MiCine.
+     * Verifica que se obtengan correctamente todas las peliculas asociadas a un espectador.
+     */
 	public void testObtenerPeliculasParaEspectador() {
 		setup();
 		incluirElementos();
