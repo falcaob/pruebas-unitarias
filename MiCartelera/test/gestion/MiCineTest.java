@@ -127,8 +127,10 @@ public class MiCineTest extends TestCase {
 	public void testObtenerPeliculasParaEspectador() {
 		setup();
 		incluirElementos();
+		assertEquals(0, c1.obtenerPeliculasParaEspectador(e1).size());
 		
 		c1.checkOut(p1, e1); //checkout primera pelicula
+		
 		ArrayList<Pelicula> testPeliculas = c1.obtenerPeliculasParaEspectador(e1);
 		assertEquals(1, testPeliculas.size());
 		assertEquals(0, testPeliculas.indexOf(p1));
@@ -136,8 +138,61 @@ public class MiCineTest extends TestCase {
 		c1.checkOut(p2, e1); //checkout segunda pelicula
 		testPeliculas = c1.obtenerPeliculasParaEspectador(e1);
 		assertEquals(2, testPeliculas.size());
-		assertEquals(1, testPeliculas.indexOf(p1));
-		
+		assertEquals(1, testPeliculas.indexOf(p2));
 	}
 
+	//Video15
+	/**
+	 * Prueba del método obtenerPeliculasDisponibles de la clase MiCine.
+	 * Verifica que se obtengan correctamente las películas disponibles en el cine.
+	 */
+	public void testObtenerPeliculasDisponibles() {
+		setup();
+		incluirElementos();
+		ArrayList<Pelicula> testPeliculas = c1.obtenerPeliculasDisponibles();
+		assertEquals(2, testPeliculas.size());
+		assertEquals(1, testPeliculas.indexOf(p2));
+		
+		c1.checkOut(p1, e1);
+		testPeliculas = c1.obtenerPeliculasDisponibles();
+		assertEquals(1, testPeliculas.size());
+		assertEquals(0, testPeliculas.indexOf(p2));
+		
+		c1.checkOut(p2, e1);
+		testPeliculas = c1.obtenerPeliculasDisponibles();
+		assertEquals(0, testPeliculas.size());
+	}
+	
+	/**
+	 * Prueba del método obtenerPeliculasNoDisponibles de la clase MiCine.
+	 * Verifica que se obtengan correctamente las películas no disponibles en el cine.
+	 */
+	public void testObtenerPeliculasNoDisponibles() {
+		setup();
+		incluirElementos();
+		assertEquals(0, c1.obtenerPeliculasNoDisponibles().size());
+		
+		c1.checkOut(p1, e1); //checkout primera pelicula
+		ArrayList<Pelicula> testPeliculas = c1.obtenerPeliculasNoDisponibles();
+		assertEquals(1, testPeliculas.size());
+		assertEquals(0, testPeliculas.indexOf(p1));
+		
+		c1.checkOut(p2, e1); //checkout segunda pelicula
+		testPeliculas = c1.obtenerPeliculasNoDisponibles();
+		assertEquals(2, testPeliculas.size());
+		assertEquals(1, testPeliculas.indexOf(p2));
+	}
+	
+	/**
+	 * Prueba del método toString de la clase MiCine.
+	 * Verifica que se devuelva correctamente una representación en cadena del cine, 
+	 * mostrando su nombre, el número de películas y el número de espectadores.
+	 */
+	public void testTostring() {
+		setup();
+		incluirElementos();
+		
+		assertEquals("Test: 2 películas; 2 espectadores",
+				c1.toString());
+	}
 }

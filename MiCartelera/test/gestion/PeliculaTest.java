@@ -39,4 +39,22 @@ public class PeliculaTest extends TestCase {
 		assertEquals("Anakin", testNombre);
 	}
 	
+	//Video15
+	/**
+	 * Prueba del método toString de la clase Pelicula.
+	 * Verifica que se devuelva correctamente una representación en cadena de la película, 
+	 * indicando su título, director y estado (disponible o comprobada para un espectador).
+	 */
+	public void testToString() {
+		Pelicula p2 = new Pelicula("Star Wars Episodio II");
+		Espectador e2 = new Espectador();
+		e2.setNombre("Anakin");
+		
+		assertEquals("Star Wars Episodio II de un director desconocido; Disponible",
+				p2.toString());
+		
+		p2.setEspectador(e2);
+		assertEquals("Star Wars Episodio II de un director desconocido; Comprobada para Anakin",
+				p2.toString());
+	}
 }
